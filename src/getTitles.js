@@ -16,7 +16,7 @@ export function GetTitles() {
     const [demandedSkills, setDemandedSkills] = useState([]);
 
     useEffect(() => {
-        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=react&limit=100", {
+        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=100", {
             headers: {
             "Content-Type": "application/json",      
             authorization: `Bearer ${getToken()}`,
@@ -25,7 +25,7 @@ export function GetTitles() {
     }, [])
 
     useEffect(() => {
-        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/skills?q=react&limit=100", {
+        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/skills?q=python&limit=100", {
             headers: {
             "Content-Type": "application/json",      
             authorization: `Bearer ${getToken()}`,

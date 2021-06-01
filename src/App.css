@@ -5,7 +5,7 @@ body    {
 .main   {
     background-image: url('./anakin.png');
     height: 800px;
-    color: white;
+    color: lightgray;
     margin: 0px;
 }
 
@@ -21,4 +21,8 @@ body    {
 
 .red    {
     color: red;
+}
+
+button  {
+    margin-right: 10px;
 }
