@@ -1,10 +1,10 @@
 import './App.css';
-import {Interface } from './components';
+import {GetTitles } from './getTitles';
 
 function App() {
   return (
-    <div>
-      <Interface/>
+    <div className = 'main'>
+      <GetTitles className = 'titles'/>
     </div>
   );
 }

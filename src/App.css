@@ -1,0 +1,24 @@
+body    {
+    margin: 0;
+}
+
+.main   {
+    background-image: url('./anakin.png');
+    height: 800px;
+    color: white;
+    margin: 0px;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.green  {
+    color: green;
+}
+
+.red    {
+    color: red;
+}
