@@ -16,7 +16,7 @@ export function GetTitles() {
     const [demandedSkills, setDemandedSkills] = useState([]);
 
     useEffect(() => {
-        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=python&limit=100", {
+        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/title?q=react&limit=100", {
             headers: {
             "Content-Type": "application/json",      
             authorization: `Bearer ${getToken()}`,
@@ -25,7 +25,7 @@ export function GetTitles() {
     }, [])
 
     useEffect(() => {
-        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/skills?q=python&limit=100", {
+        fetch("https://emsiservices.com/emsi-open-proxy-service/postings/us/taxonomies/skills?q=react&limit=100", {
             headers: {
             "Content-Type": "application/json",      
             authorization: `Bearer ${getToken()}`,
@@ -38,7 +38,7 @@ export function GetTitles() {
         let loaded = skills && skills.length;
         if(loaded && increase){
             (hireCount <= skills.length -1 && hireCount > 0) ? newDemandedSkills.push(skills[hireCount - 1]) : setDemandedSkills(newDemandedSkills);
-        }
+        }                                                                                                    //newDemandedSkills.push(skills[hireCount - (skills.length - 1)
         setDemandedSkills(newDemandedSkills);
     }, [hireCount, skills])
 
@@ -59,7 +59,7 @@ export function GetTitles() {
 
         return(
             <div>
-                <h1>Skills In Demand</h1>
+                <h1>Skills In Demand:</h1>
                 <ul>
                     {loaded ?  demandedSkills.map((skill, index) => <SkillsItem skill = {skill['name']} key = {index}/>): <div></div>}
                 </ul>
@@ -108,7 +108,7 @@ export function GetTitles() {
     const HireTitlesItem = (props) =>   {
         return(
             <li>
-                <input type = 'checkbox' onClick = {() => RemoveHireTitles(props.index)}></input>
+                <button onClick = {() => RemoveHireTitles(props.index)}>Remove</button>
                 <span>{props.hire}</span>
             </li>
         );
@@ -131,7 +131,7 @@ export function GetTitles() {
     const JobTitlesItem = (props) =>    {
         return(
                 <li>
-                    <input type = 'checkbox' onClick = {() => AddHireTitles(props.index)}></input>
+                    <button onClick = {() => AddHireTitles(props.index)}>Add</button>
                     <span>{props.title}</span>
                 </li>
         );
@@ -141,7 +141,7 @@ export function GetTitles() {
     return(
         <div className = 'titles'>
             <div>
-                <h1>Titles</h1>
+                <h1>Titles:</h1>
                 <ul>
                     {loaded ?  titles.map((title, index) => <JobTitlesItem title = {title['name']} index = {index} key = {index}/>): <div>Loading</div>}
                 </ul>
