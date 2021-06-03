@@ -90,7 +90,7 @@ export function GetTitles() {
         );
     }
 
-    function AddHireTitles(id)    {
+    function addHireTitles(id)    {
         let newHires = [...hires]; //why do i need spread here?
         let addition = titles[id];
         newHires.push(addition);
@@ -106,9 +106,10 @@ export function GetTitles() {
     }
 
     const HireTitlesItem = (props) =>   {
+        console.log(props.id);
         return(
             <li>
-                <button onClick = {() => RemoveHireTitles(props.index)}>Remove</button>
+                <button onClick = {() => RemoveHireTitles(props.id)}>Remove</button>
                 <span>{props.hire}</span>
             </li>
         );
@@ -131,7 +132,7 @@ export function GetTitles() {
     const JobTitlesItem = (props) =>    {
         return(
                 <li>
-                    <button onClick = {() => AddHireTitles(props.index)}>Add</button>
+                    <button onClick = {() => addHireTitles(props.index)}>Add</button>
                     <span>{props.title}</span>
                 </li>
         );
